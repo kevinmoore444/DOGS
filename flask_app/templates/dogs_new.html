@@ -1,0 +1,35 @@
+<!-- We navigate here when clicking on add a dog.
+To add a new dog we created a post method on a form with all the appropriate inputs and a button to submit.
+It directs the user to the /create route, which is a class method(post) that inserts the 
+data into the database-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add A Dog</title>
+</head>
+<body>
+    <h1>Add A Dog</h1>
+    <form action = "/dogs/create" method="post">
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+    {% if messages %}                            <!-- check if there are any messages -->
+        {% for message in messages %}            <!-- loop through the messages -->
+            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+        <p>Name</p>
+        <input type="text" name="name" id="name">
+        <p>Breed</p>
+        <input type="text" name="breed" id="breed">
+        <p>Age</p>
+        <input type="number" name="age" id="age">
+        <p>Cool</p>
+        <input type="checkbox" name="cool" id="cool">
+        <button>Add Doggy</button>
+    </form>
+</body>
+</html>

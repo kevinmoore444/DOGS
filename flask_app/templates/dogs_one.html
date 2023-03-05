@@ -1,0 +1,23 @@
+<!-- We navigate here when clicking on the dogs name, to check out on dog in particular 
+Has extra links for new dog and going back. populates the other info based upon the one_dog variable
+which is passed in via the server.py file-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Dogs</title>
+</head>
+<body>
+    <h1>Check out this dog</h1>
+    <p>{{one_dog.name}} is a {{one_dog.age}} year old {{one_dog.breed}}</p>
+    <h3>{{one_dog.name}} has won {{one_dog.awards|length}} awards</h3>
+    {% for one_award in one_dog.awards %}
+    <p>{{one_award.title}}</p>
+    {%endfor%}
+    <a href="/dogs/new">Add a dog</a>
+    <a href="/">back</a>
+</body>
+</html>

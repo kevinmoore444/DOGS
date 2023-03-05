@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give a dog an award</title>
+</head>
+<body>
+    <h1>Give a dog an award</h1>
+    <form action="/awards/create" method="post">
+        <p>Award Title</p>
+        <input type="text" name="title" id="title">
+        <select name="dog_id" id="dog_id">
+            {% for one_dog in all_dogs %}
+            <option value="{{one_dog.id}}">{{one_dog.name}}</option>
+            {%endfor%}
+        </select>
+        <button>Good Doggy</button>
+    </form>
+</body>
+</html>

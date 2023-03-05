@@ -1,0 +1,28 @@
+<!-- The index.html is the home page -->
+<!-- one_dog is an iterative variable set by the for loop -->
+<!-- the first three links - view/edit/adopt are inside the for clause so that the option will
+be available for every dog in the database -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Dogs</title>
+</head>
+<body>
+    <h1>Check out these dogs</h1>
+    {% for one_dog in all_dogs %}
+    <p><a href="/dogs/{{one_dog.id}}/view">{{one_dog.name}}</a> is a {{one_dog.age}} year old {{one_dog.breed}}
+    <a href="/dogs/{{one_dog.id}}/edit">Edit</a>
+    <a href="/dogs/{{one_dog.id}}/delete">Adopt</a>
+    </p>
+    {%endfor%}
+
+
+    <a href="/dogs/new">Add a dog</a>
+    <a href="/awards/new">Award a award</a>
+    <a href="/awards">All Awards</a>
+</body>
+</html>

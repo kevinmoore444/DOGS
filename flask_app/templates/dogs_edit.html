@@ -1,0 +1,33 @@
+<!-- We navigate to this html when hitting the edit button
+The info from this_dog is transferred from the app route. Submitting this form send the user to the 
+update route on the server.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit A Dog</title>
+</head>
+<body>
+    <h1>Edit A Dog</h1>
+    <form action = "/dogs/{{this_dog.id}}/update" method="post">
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+    {% if messages %}                            <!-- check if there are any messages -->
+        {% for message in messages %}            <!-- loop through the messages -->
+            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+        <p>Name</p>
+        <input type="text" name="name" id="name" value="{{this_dog.name}}">
+        <p>Breed</p>
+        <textarea name="breed" id="breed" cols="30" rows="10">{{this_dog.breed}}</textarea>
+        <p>Age</p>
+        <input type="number" name="age" id="age" value="{{this_dog.age}}">
+        <button>Update Doggy</button>
+    </form>
+</body>
+</html>
